@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -89,16 +89,28 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/reponsive.css" />
   </head>
   <body>
-    <!-- Header -->
+    <!-- PC Header -->
     <header class="fixed-header">
       <div class="content">
         <nav class="navbar">
+          <!-- Tablet/mobile menu -->
+          <label for="menu-checkbox" class="toggle-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+              <path
+                fill="currentColor"
+                d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"
+              />
+            </svg>
+          </label>
           <!-- Logo -->
-          <a href="#"><img src="./assets/img/logo.svg" alt="Besnik." /> </a>
+          <a href="#"
+            ><img src="./assets/img/logo.svg" alt="Besnik." class="logo" />
+          </a>
           <!-- Navigation -->
-          <ul>
+          <ul id="pc-nav">
             <li>
               <a href="#">Home</a>
             </li>
@@ -114,6 +126,12 @@
             <li>
               <a href="#contact">Contact</a>
             </li>
+            <li class="show-on-moblie separate">
+              <a href="#!">Sign in</a>
+            </li>
+            <li class="show-on-moblie">
+              <a href="#!">Sign</a>
+            </li>
           </ul>
 
           <!-- Action -->
@@ -124,6 +142,30 @@
         </nav>
       </div>
     </header>
+
+    <!-- Tablet / Mobile header -->
+    <header class="moble-header">
+      <input
+        aria-label="tab"
+        type="checkbox"
+        name=""
+        id="menu-checkbox"
+        class="menu-checkbox"
+        hidden
+      />
+
+      <!-- Overplay -->
+      <label for="menu-checkbox" class="menu-overplay"></label>
+
+      <!-- Menu content -->
+      <div class="menu-drawer">
+        <a href="#"><img src="./assets/img/logo.svg" alt="Besnik." /> </a>
+
+        <!-- Navigation -->
+        <ul id="mobile-nav"></ul>
+      </div>
+    </header>
+
     <main>
       <!-- Hero -->
       <div class="hero-wrap">
@@ -168,7 +210,7 @@
           <!-- Description Row -->
           <div class="row row-desc">
             <p class="description">More than 45,000+ companies trust besnik</p>
-            <p class="description">5 Star Ratings (2k+ Review)</p>
+            <p class="description end-text">5 Star Ratings (2k+ Review)</p>
           </div>
 
           <!-- Brand -->
@@ -331,6 +373,10 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="view-all show-on-moblie">
+            <a href="#!" class="btn">View All Properties</a>
           </div>
         </div>
       </div>
@@ -574,5 +620,13 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      const pcNav = document.querySelector("#pc-nav");
+      const mobileNav = document.querySelector("#mobile-nav");
+
+      // copy from pc to moblie app
+      mobileNav.innerHTML = pcNav.innerHTML;
+    </script>
   </body>
 </html>
